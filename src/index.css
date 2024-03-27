@@ -53,11 +53,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.register-button {
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 1em;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
