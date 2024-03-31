@@ -2,13 +2,16 @@ import { useState } from 'react'
 
 import './Card.css'
 
+interface CardProps {
+    onLoginClick: () => void;
+}
 
-const Card : React.FC = () => {
+const Card : React.FC<CardProps> = ( {onLoginClick} ) => {
     const [view, setView] = useState<'login' | 'register'>('login')
 
     return (
         <>
-            {view == 'login' && <Login onRegisterClick={() => setView('register')}/>}
+            {view == 'login' && <Login onLoginClick={onLoginClick} onRegisterClick={() => setView('register')}/>}
             {view == 'register' && <Register onBackClick={() => setView('login')}/>} 
         </>
     )
@@ -16,38 +19,35 @@ const Card : React.FC = () => {
 
 interface LoginProps {
     onRegisterClick: () => void;
+    onLoginClick: () => void;
 }
 
 interface RegisterProps {
     onBackClick: () => void;
 }
 
-const Login : React.FC<LoginProps> = ({ onRegisterClick }) => {
+const Login : React.FC<LoginProps> = ({ onRegisterClick, onLoginClick }) => {
 
     return (
         <>
 
-        <div>
+        <div className="flex-container">
+            <p>
+                Welcome to FishLogger!
+                Please login with an existing account or register a new account.
+            </p>
 
-            <div className="flex-container">
-                <p>
-                    Welcome to FishLogger!
-                </p>
-                <p>
-                    Please login with an existing account or register a new account.
-                </p>
-                <label className="user-input">
-                    Username: <input />
-                </label>
-                <label>
-                    Password: <input />
-                </label>
-            </div>
+            <span>Username:</span>
+            <input />
+            <span>Password:</span>
+            <input type="password"/>
+        </div>
 
-            <button className="bot-button">
+        <div className="button-box">
+            <button onClick={onLoginClick}>
                 Login
             </button>
-            <button className="bot-button" onClick={onRegisterClick}>
+            <button onClick={onRegisterClick}>
                 Register
             </button>
         </div>
@@ -61,30 +61,26 @@ const Register : React.FC<RegisterProps> = ({ onBackClick }) => {
     return (
         <>
 
-        <div>
+        <div className="flex-container">
+            <p>
+                Please register below with a username, email address and password.
+            </p>
 
-            <div className="flex-container">
-                <p>
-                    Please register below with a username, email address and password.
-                </p>
-                <label className="user-input">
-                    Username: <input />
-                </label>
-                <label>
-                    Email Address: <input />
-                </label>
-                <label>
-                    Password: <input />
-                </label>
-                <label>
-                    Confirm Password: <input />
-                </label>
-            </div>
-
-            <button className="bot-button">
+            <span>Username:</span>
+            <input />
+            <span>Email Address:</span>
+            <input />
+            <span>Password:</span>
+            <input type="password"/>
+            <span>Confirm Password:</span>
+            <input type="password"/>
+        </div>
+        
+        <div className="button-box">
+            <button>
                 Sign Up
             </button>
-            <button className="bot-button" onClick={onBackClick}>
+            <button onClick={onBackClick}>
                 Back to Home
             </button>
         </div>
@@ -92,6 +88,5 @@ const Register : React.FC<RegisterProps> = ({ onBackClick }) => {
         </>
     )
 }
-
 
 export default Card

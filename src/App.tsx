@@ -1,24 +1,20 @@
-import smallLogo from '/small_logo.png'
-import Card from './components/Card.tsx'
+import { useState } from 'react'
+import HomePage from './components/HomePage.tsx'
+import Dashboard from './components/Dashboard.tsx'
 
 import './App.css'
 
 function App() {
+    const [mainView, setMainView] = useState<'home' | 'dash'>('home')
 
-  return (
-    <>
-      <img src={smallLogo} className="small-logo" alt="FishLogger small logo" />
-      <h1>FishLogger</h1>
-      
-      <div className="card">
-        <Card />
-      </div>
+    return (
+        <>
 
-      <p className="read-the-docs">
-        Lorem ipsum.
-      </p>
-    </>
-  )
+            {mainView === 'home' && <HomePage onLoginClick={() => setMainView('dash')}/>}
+            {mainView === 'dash' && <Dashboard onSignOutClick={() => setMainView('home')}/>}
+
+        </>
+    )
 }
 
 export default App
