@@ -4,29 +4,6 @@
     flex-direction: column;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.label-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.label-container span {
-    width: 140px;
-    text-align: right;
-    margin-right: 10px;
-}
-
-.label-container input {
-    flex-grow: 1;
-}
-
 .button-box {
     margin-top: 10px;
 }
