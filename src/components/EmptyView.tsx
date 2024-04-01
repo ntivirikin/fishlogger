@@ -7,7 +7,7 @@ const EmptyView : React.FC<EmptyViewProps> = ({ onCreateClick, onSignOutClick })
     return (
         <>
             <h2>Welcome to the dashboard!</h2>
-            <p>You have no catches logged! Please click the Create button to begin.</p>
+            <p>You have no catches logged! Please click the Create button to add a catch.</p>
 
             <div className="button-box">
                 <button onClick={onCreateClick}>
