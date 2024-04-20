@@ -1,0 +1,15 @@
+.input-back {
+    background-color: grey;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.side-flex {
+    display: flex;
+    align-items: center;
+}
+
+.fish-species {
+  height: 20em;
+  padding-left: 5em;
+}
