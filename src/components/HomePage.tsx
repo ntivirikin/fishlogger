@@ -2,7 +2,7 @@ import smallLogo from '/small_logo.png'
 
 import Card from './Card.tsx'
 
-import './HomePage.css'
+// import './HomePage.css'
 
 interface HomePageProps {
     onLoginClick: () => void;
@@ -10,18 +10,16 @@ interface HomePageProps {
 
 const HomePage : React.FC<HomePageProps> = ( {onLoginClick} ) => {
     return (
-        <>
-            <img src={smallLogo} className="small-logo" alt="FishLogger small logo" />
-            <h1>FishLogger</h1>
+        <div className="flex flex-col place-items-center space-y-4">
+
+            <img src={smallLogo} className="size-48 mt-16" alt="FishLogger small logo" />
+            <h1 className="text-4xl">FishLogger</h1>
             
-            <div className="card">
+            <div className="mt-8">
                 <Card onLoginClick={onLoginClick}/>
             </div>
 
-            <p className="read-the-docs">
-                Lorem ipsum.
-            </p>
-        </>
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import smallLogo from '/small_logo.png'
 
-import './Logging.css'
+// import './Logging.css'
 
 interface LoggingProps {
     onBackClick: () => void;
