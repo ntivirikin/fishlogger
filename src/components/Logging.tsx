@@ -1,6 +1,4 @@
-import smallLogo from '/small_logo.png'
-
-// import './Logging.css'
+import sideImage from '/side_image.webp'
 
 interface LoggingProps {
     onBackClick: () => void;
@@ -8,11 +6,11 @@ interface LoggingProps {
 
 const Logging : React.FC<LoggingProps> = ( {onBackClick} ) => {
     return (
-        <>
-            <p>Please fill out the information below to log your catch!</p>
+        <div className="flex flex-col items-center">
+            <p className="my-8">Please fill out the information below to log your catch!</p>
 
-            <div className="side-flex input-back">
-                <div className="flex-container">
+            <div className="flex flex-row justify-center">
+                <div className="bg-sky-800 rounded-md flex flex-col justify-center space-y-1 px-8">
 
                     <span>Date:</span>
                     <input />
@@ -45,19 +43,19 @@ const Logging : React.FC<LoggingProps> = ( {onBackClick} ) => {
                     <input /> {/* Select from options:*/}
 
                 </div>
-                <img src={smallLogo} className="fish-species" alt="Fish species photograph"/>
+                <img src={sideImage} className="size-1/4 ml-10 rounded-md" alt="Fish species photograph"/>
             </div>
 
-            <div className="button-box">
-                <button>
+            <div className="flex flex-row mt-10">
+                <button className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md">
                     Submit
                 </button>
-                <button onClick={onBackClick}>
+                <button onClick={onBackClick} className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md ml-5">
                     Back
                 </button>
             </div>
 
-        </>
+        </div>
     )
 }
 

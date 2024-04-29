@@ -2,8 +2,6 @@ import smallLogo from '/small_logo.png'
 
 import Card from './Card.tsx'
 
-// import './HomePage.css'
-
 interface HomePageProps {
     onLoginClick: () => void;
 }

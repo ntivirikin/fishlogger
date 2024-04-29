@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-// import './Card.css'
-
 interface CardProps {
     onLoginClick: () => void;
 }
@@ -30,8 +28,7 @@ const Login : React.FC<LoginProps> = ({ onRegisterClick, onLoginClick }) => {
 
     return (
 
-        <>
-        <div className="flex flex-col place-items-center space-y-5">
+        <div className="flex flex-col items-center space-y-5">
             <p>
                 Welcome to FishLogger!
                 Please login with an existing account or register a new account.
@@ -56,9 +53,6 @@ const Login : React.FC<LoginProps> = ({ onRegisterClick, onLoginClick }) => {
                 </button>
             </div>
         </div>
-
-        </>
-
 
     )
 }
