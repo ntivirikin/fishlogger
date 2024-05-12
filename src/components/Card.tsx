@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface CardProps {
     onLoginClick: () => void;
@@ -58,6 +58,28 @@ const Login : React.FC<LoginProps> = ({ onRegisterClick, onLoginClick }) => {
 }
 
 const Register : React.FC<RegisterProps> = ({ onBackClick }) => {
+    function registerUser() {
+        console.log("Something!")
+    }
+
+    useEffect(() => {
+
+        function handleClick() {
+            registerUser();
+        }
+
+        const registerButton: HTMLElement | null = document.getElementById("registerButton");
+
+        if (registerButton) {
+            registerButton.addEventListener("click", handleClick);
+        }
+
+        return () => {
+            if (registerButton) {
+                registerButton.removeEventListener("click", handleClick);
+            }
+        }
+    });
 
     return (
         <>
@@ -69,29 +91,29 @@ const Register : React.FC<RegisterProps> = ({ onBackClick }) => {
 
             <div className="flex flex-row">
                 <span className="mr-2">Username</span>
-                <input />
+                <input name="user"/>
             </div>
 
             <div className="flex flex-row">
                 <span className="mr-2">Email Address</span>
-                <input />
+                <input name="email" type="email"/>
             </div>
 
             <div className="flex flex-row">
                 <span className="mr-2">Password</span>
-                <input type="password"/>
+                <input name="password" type="password"/>
             </div>
 
             <div className="flex flex-row">
                 <span className="mr-2">Confirm Password</span>
-                <input type="password"/>
+                <input name="confirm-password" type="password"/>
             </div>
         
             <div className="flex flex-row">
-                <button className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md">
+                <button onClick={registerUser} className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md">
                     Sign Up
                 </button>
-                <button onClick={onBackClick} className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md ml-5">
+                <button id="registerButton" onClick={onBackClick} className="bg-blue-500 hover:bg-blue-300 px-5 py-2 rounded-md ml-5">
                     Back to Home
                 </button>
             </div>
